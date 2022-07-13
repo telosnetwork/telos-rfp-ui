@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Silka";
+  src: local(Silka), url(../fonts/silka-light-webfont.ttf) format('truetype');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Silka";
+  src: local(Silka), url(../fonts/silka-medium-webfont.ttf) format('truetype');
+  font-weight: 500;
+}
+
+body {
+  @apply bg-blue-dark-1 text-white;
+  -webkit-font-smoothing: antialiased;
+}
+
+body,
+input,
+textarea,
+button {
+  font-family: 'Silka', sans-serif;
+}
+
+.container {
+  @apply w-full max-w-[calc(1120px+3rem)] px-4 mx-auto;
+}
+
+.heading-1 {
+  @apply block text-[1.75rem] leading-9 md:text-[2rem] md:leading-10 font-medium text-white;
+}
+.heading-2 {
+  @apply block text-xl md:text-2xl font-medium text-white;
+}
+.heading-3 {
+  @apply block text-base font-medium text-white;
+}
+
+.body-1 {
+  @apply block text-base font-light text-blue-light;
+}
+.body-2 {
+  @apply block text-sm font-light text-blue-light;
+}
+
+.link {
+  @apply md:hover:text-white md:hover:underline;
+}
+
+.loader {
+  @apply border-8 border-blue-dark-3 border-t-8 border-t-blue rounded-full w-14 h-14;
+  animation: loader 1s linear infinite;
+}
+.loader-medium {
+  @apply border-4 border-blue-dark-3 border-t-4 border-t-blue rounded-full w-5 h-5;
+  animation: loader 1s linear infinite;
+}
+@keyframes loader {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

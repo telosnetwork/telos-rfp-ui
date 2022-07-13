@@ -1,0 +1,75 @@
+.btn {
+  @apply inline-block relative px-6 py-[0.625rem] text-sm leading-6 font-medium text-white duration-150 rounded-full cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed hover:disabled:bg-inherit;
+}
+.btn--loading {
+  @apply text-transparent
+}
+.btn--loading::after {
+  @apply content-[''] absolute top-[calc(50%-0.75rem)] left-[calc(50%-0.75rem)] border-[6px] border-blue-dark-3 border-t-[6px] border-t-blue rounded-full w-6 h-6;
+  animation: loader 1s linear infinite;
+}
+.btn--square {
+  @apply px-[0.625rem];
+}
+.btn--primary {
+  @apply bg-gradient-purple md:hover:bg-gradient-purple-light;
+}
+.btn--secondary {
+  @apply border border-blue-light py-[0.563rem] md:hover:bg-blue-dark-3;
+}
+.btn--tertiary {
+  @apply md:hover:bg-blue-dark-3;
+}
+.btn--tertiary.btn--opaque {
+  @apply text-blue-light;
+}
+.btn--tertiary.btn--active {
+  @apply bg-blue-dark-3;
+}
+
+
+.field {
+  @apply block relative cursor-text;
+}
+.field__entry {
+  @apply
+    w-full border-b pt-8 pb-[calc(0.5rem-1px)] pl-3 transition-all outline-none
+    font-light text-base text-white placeholder-transparent
+    bg-blue-dark-1 rounded-t-lg rounded-b-none
+    focus:border-blue focus:bg-blue-dark-2
+    border-blue-light pr-3;
+}
+input.field__entry,
+textarea.field__entry {
+  @apply appearance-none
+}
+.field__entry--error {
+  @apply border-red-500 pr-12;
+}
+.field__label {
+  @apply absolute left-3 top-2 font-medium text-white text-sm transition-all;
+}
+.field__support {
+  @apply block text-sm font-light text-blue-light mt-2;
+}
+.field__error-icon {
+  @apply absolute top-8 right-3 text-red-500;
+}
+.field__error-text {
+  @apply block text-sm font-medium text-red-500 mt-2;
+}
+.field:hover > .field__entry {
+  @apply md:bg-blue-dark-2 md:hover:border-blue;
+}
+.field:hover > .field__label {
+  @apply md:left-3 !important;
+}
+.field__entry:not(:placeholder-shown) {
+  @apply bg-blue-dark-2;
+}
+.field__entry:placeholder-shown ~ .field__label {
+  @apply text-base top-5 left-0;
+}
+.field__entry:focus ~ .field__label {
+  @apply text-sm top-2 left-3;
+}

@@ -1,0 +1,44 @@
+.nav {
+  @apply
+    hidden flex-col bottom-0 left-0 w-full h-[calc(100%-4.5rem)] py-4 pt-8
+    md:flex md:flex-row md:w-auto md:h-auto md:static md:py-0 md:pt-0;
+}
+.nav--active {
+  @apply flex;
+}
+.nav--mask {
+  @apply before:content-[''] before:w-screen before:h-screen before:fixed before:left-0 before:top-0;
+}
+
+.nav__item {
+  @apply text-2xl leading-[2.75rem] font-light text-blue-light rounded-full cursor-pointer select-none md:px-4 my-4
+  md:text-base md:leading-[2.75rem] md:hover:text-white md:hover:bg-blue-dark-2 md:my-0;
+}
+.nav__item--active {
+  @apply text-white;
+}
+
+.nav__dropdown {
+  @apply relative;
+}
+.nav__dropdown-control {
+  @apply flex flex-row flex-nowrap items-center text-blue-light rounded-full cursor-pointer pr-4
+  md:hover:text-white md:hover:bg-blue-dark-2;
+}
+.nav__dropdown-control .nav__item {
+  @apply pr-1 md:hover:text-white;
+}
+.nav__dropdown-list {
+  @apply absolute top-16 right-0 w-full flex flex-col px-6 py-2 md:p-2 rounded-lg bg-blue-dark-1 border border-blue-dark-2 md:top-11;
+}
+.nav__dropdown--active .nav__dropdown-control,
+.nav__dropdown--active .nav__item {
+  @apply text-white;
+}
+.nav__dropdown:not(.nav__dropdown--active) .nav__dropdown-list {
+  @apply hidden;
+}
+
+.nav-mask {
+  @apply fixed top-0 left-0 w-screen h-screen z-[9];
+}
