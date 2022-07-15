@@ -9,6 +9,7 @@ export function useProposals({
   projectNumberProposalsRewarded,
   projectProgramManager,
   selectedProposalId,
+  rewardedProposalId,
   hasVotingPeriodEnded,
 }) {
   const { user } = useAuth();
@@ -57,27 +58,19 @@ export function useProposals({
           setSelectedProposal(selectedProposal);
         }
 
-        if (
-          hasVotingPeriodEnded &&
-          projectNumberProposalsRewarded >= proposals.length
-        ) {
-          setMyProposals([]);
-          setWinningProposals(proposals);
-          setOtherProposals([]);
-          setAcceptedProposals([]);
-
-          return;
-        }
-
         let myProposals = [];
         let winningProposals = [];
         let otherProposals = [];
 
+        if (rewardedProposalId.length > 0) {
+          winningProposals = proposals.filter((proposal) =>
+            rewardedProposalId.includes(proposal.proposal_id)
+          );
+        }
+
         if (hasVotingPeriodEnded) {
-          winningProposals = proposals.slice(0, projectNumberProposalsRewarded);
-          otherProposals = proposals.slice(
-            projectNumberProposalsRewarded,
-            proposals.length
+          otherProposals = proposals.filter(
+            (proposal) => !rewardedProposalId.includes(proposal.proposal_id)
           );
         } else {
           myProposals = proposals.filter(
@@ -116,6 +109,7 @@ export function useProposals({
     projectNumberProposalsRewarded,
     projectProgramManager,
     selectedProposalId,
+    rewardedProposalId,
     hasVotingPeriodEnded,
   ]);
 
