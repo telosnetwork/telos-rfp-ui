@@ -33,6 +33,7 @@ export function ProjectProvider({
     projectNumberProposalsRewarded: project.number_proposals_rewarded,
     projectProgramManager: project.program_manager,
     selectedProposalId: project.proposal_selected,
+    rewardedProposalId: project.proposals_rewarded,
     hasVotingPeriodEnded,
   });
 
