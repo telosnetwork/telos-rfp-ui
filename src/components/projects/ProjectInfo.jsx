@@ -1,5 +1,5 @@
 import { format } from 'date-fns';
-import { gatewayURL } from '@configs/pinataConfig';
+import { fileURL } from '@configs/telosConfig';
 import { Overline } from '@components/Overline';
 import { useProject } from '@hooks/useProject';
 
@@ -41,7 +41,7 @@ export function ProjectInfo({ ...rest }) {
           <p className="body-1">
             <strong className="font-medium">Additional documentation:</strong>{' '}
             <a
-              href={`${gatewayURL}/${project.pdf}/?preview=1`}
+              href={`${fileURL}/${project.pdf}/?preview=1`}
               target="_blank"
               rel="noreferrer"
               className="truncate link"

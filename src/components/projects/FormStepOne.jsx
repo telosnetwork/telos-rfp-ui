@@ -8,7 +8,7 @@ import Textarea from '@components/Textarea';
 import { Timeline } from '@components/Timeline';
 import { UploadFile } from '@components/UploadFile';
 import { projectStepOneValidationSchema } from '@schemas/projectValidationSchema';
-import { deleteFile } from '@services/pinataService';
+import { deleteFileService } from '@services/files/deleteFileService';
 
 export function FormStepOne({ isNew, setStep, data, setData, onDelete }) {
   const router = useRouter();
@@ -41,7 +41,7 @@ export function FormStepOne({ isNew, setStep, data, setData, onDelete }) {
 
   async function onBack() {
     if (isNew && typeof getValues('pdf') === 'string') {
-      await deleteFile(getValues('pdf'));
+      await deleteFileService(getValues('pdf'));
     }
     router.push('/');
   }

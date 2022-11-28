@@ -2,7 +2,7 @@ import { createContext, useState, useCallback } from 'react';
 import { useRouter } from 'next/router';
 import { removeProposalService } from '@services/proposals/removeProposalService';
 import { delay } from '@utils/delay';
-import { deleteFile } from '@services/pinataService';
+import { deleteFileService } from '@services/files/deleteFileService';
 
 export const ProposalFormContext = createContext({});
 
@@ -31,7 +31,7 @@ export function ProposalFormProvider({
       'references_pdf',
     ];
     await Promise.all(
-      files.map((file) => data[file] && deleteFile(data[file]))
+      files.map((file) => data[file] && deleteFileService(data[file]))
     );
   }, [data]);
 

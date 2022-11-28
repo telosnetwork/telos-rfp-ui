@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import InputFile from '@components/InputFile';
 import { UploadCardFile } from '@components/UploadCardFile';
-import { saveFile, deleteFile } from '@services/pinataService';
+import { saveFileService } from '@services/files/saveFileService';
+import { deleteFileService } from '@services/files/deleteFileService';
 
 export function UploadFile({
   name: registerName,
@@ -24,14 +25,14 @@ export function UploadFile({
     },
   });
 
-  async function onDelete() {
+  async function onDelete(fileIpfsHash) {
     setIsDeleting(true);
     setValue(name, '');
     if (typeof onFile !== 'undefined') {
       onFile(null, '');
     }
     try {
-      await deleteFile(fileIpfsHash);
+      await deleteFileService(fileIpfsHash);
     } catch (error) {
       console.log(JSON.parse(JSON.stringify(error)));
     }
@@ -45,7 +46,7 @@ export function UploadFile({
     }
     setIsUploading(true);
     try {
-      const ipfsHash = await saveFile(event.target.files[0]);
+      const ipfsHash = await saveFileService(event.target.files[0]);
       if (typeof onFile !== 'undefined') {
         onFile(event.target.files[0], ipfsHash);
       }
@@ -70,7 +71,7 @@ export function UploadFile({
             <button
               type="button"
               className="btn btn--secondary"
-              onClick={onDelete}
+              onClick={() => onDelete(fileIpfsHash)}
             >
               Delete
             </button>

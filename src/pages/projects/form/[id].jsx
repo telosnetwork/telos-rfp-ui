@@ -9,7 +9,7 @@ import { showProjectService } from '@services/projects/showProjectService';
 import { removeProjectService } from '@services/projects/removeProjectService';
 import { isDraft } from '@utils/projectStatus';
 import { delay } from '@utils/delay';
-import { deleteFile } from '@services/pinataService';
+import { deleteFileService } from '@services/files/deleteFileService';
 
 export default function ProjectForm({ initialData }) {
   const isNew = Object.keys(initialData).length === 0;
@@ -23,7 +23,7 @@ export default function ProjectForm({ initialData }) {
         projectId: initialData.project_id,
       });
 
-      await deleteFile(initialData.pdf);
+      await deleteFileService(initialData.pdf);
 
       delay(() => {
         router.push('/');

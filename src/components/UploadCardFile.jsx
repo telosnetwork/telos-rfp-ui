@@ -1,5 +1,5 @@
 import { FiFile } from 'react-icons/fi';
-import { gatewayURL } from '@configs/pinataConfig';
+import { fileURL } from '@configs/telosConfig';
 
 export function UploadCardFile({
   label,
@@ -35,7 +35,7 @@ export function UploadCardFile({
           )}
           {ipfsHash && (
             <a
-              href={`${gatewayURL}/${ipfsHash}/?preview=1`}
+              href={`${fileURL}/${ipfsHash}/?preview=1`}
               target="_blank"
               rel="noreferrer"
               className="font-medium text-white text-base truncate link"

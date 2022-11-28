@@ -9,7 +9,7 @@ import { BaseLayout } from '@layouts/BaseLayout';
 import Input from '@components/Input';
 import Textarea from '@components/Textarea';
 import { UploadFile } from '@components/UploadFile';
-import { deleteFile } from '@services/pinataService';
+import { deleteFileService } from '@services/files/deleteFileService';
 import { createReportService } from '@services/milestones/createReportService';
 import { reportValidationSchema } from '@schemas/reportValidationSchema';
 import { delay } from '@utils/delay';
@@ -53,7 +53,7 @@ export default function CreateReport({ projectId, milestoneId }) {
 
   async function onBack() {
     if (typeof getValues('document') === 'string') {
-      await deleteFile(getValues('document'));
+      await deleteFileService(getValues('document'));
     }
     router.back();
   }

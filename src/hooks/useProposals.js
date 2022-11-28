@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useAuth } from '@hooks/useAuth';
 import { listProposalsService } from '@services/proposals/listProposalsService';
-import { getCSVInformation } from '@services/pinataService';
+import { showCsvFileService } from '@services/files/showCsvFileService';
 
 export function useProposals({
   projectId,
@@ -37,7 +37,7 @@ export function useProposals({
 
         proposals = await Promise.all(
           proposals.map(async (proposal) => {
-            const timeline = await getCSVInformation(proposal.timeline);
+            const timeline = await showCsvFileService(proposal.timeline);
             proposal.timeline = timeline;
             return proposal;
           })

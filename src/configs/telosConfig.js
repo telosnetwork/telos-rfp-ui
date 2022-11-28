@@ -2,6 +2,7 @@ module.exports = {
   chainId: process.env.NEXT_PUBLIC_TELOS_CHAIN_ID,
   nodeUrl: process.env.NEXT_PUBLIC_TELOS_NODE_URL,
   identifier: process.env.NEXT_PUBLIC_TELOS_IDENTIFIER,
+  fileURL: 'https://gateway.pinata.cloud/ipfs',
 
   telosWorks: {
     contractName: process.env.NEXT_PUBLIC_TELOS_WORKS_CONTRACT_NAME,
