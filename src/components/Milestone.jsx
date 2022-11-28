@@ -116,8 +116,9 @@ export function Milestone({
             {hasReportButton && (
               <Link
                 href={`/projects/reports/${project.project_id}/${milestoneId}`}
+                className="btn btn--primary"
               >
-                <a className="btn btn--primary">Send Report</a>
+                Send Report
               </Link>
             )}
             {hasReviewReport && (

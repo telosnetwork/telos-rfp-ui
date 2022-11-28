@@ -131,8 +131,9 @@ export function ProposalItem({
             {hasEditButton && (
               <Link
                 href={`/projects/proposal/${router.query.id}/${proposalId}`}
+                className="btn btn--secondary"
               >
-                <a className="btn btn--secondary">Edit</a>
+                Edit
               </Link>
             )}
             {hasChooseProposalButton && (

@@ -9,8 +9,8 @@ export function ProjectEmpty() {
       {isProgramManager ? (
         <>
           <h1 className="heading-2">Submit the first project</h1>
-          <Link href="/projects/form/new">
-            <a className="btn btn--primary mt-6">Create Project</a>
+          <Link href="/projects/form/new" className="btn btn--primary mt-6">
+            Create Project
           </Link>
         </>
       ) : (
