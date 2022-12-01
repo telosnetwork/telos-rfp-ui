@@ -9,7 +9,7 @@ import { delay } from '@utils/delay';
 import { BaseLayout } from '@layouts/BaseLayout';
 
 import { HeaderBack } from '@components/HeaderBack';
-import Input from '@components/Input';
+import { Input } from '@components/Input';
 
 const schema = yup.object({
   programManager: yup

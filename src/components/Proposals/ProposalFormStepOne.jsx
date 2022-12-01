@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import csvToJson from 'csvtojson';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { HeaderBack } from '@components/HeaderBack';
-import Input from '@components/Input';
+import { Input } from '@components/Input';
 import { UploadFile } from '@components/UploadFile';
 import { Timeline } from '@components/Timeline';
 import { proposalStepOneValidationSchema } from '@schemas/proposalValidationSchema';

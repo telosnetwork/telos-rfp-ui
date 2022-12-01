@@ -1,10 +1,9 @@
-import { forwardRef, useEffect, useRef } from 'react';
+import { forwardRef, useEffect, useRef, useImperativeHandle } from 'react';
 import { FiAlertCircle } from 'react-icons/fi';
 import IMask from 'imask';
-import { useMergeRefs } from '@hooks/useMergeRefs';
 import masks from '@utils/masks';
 
-const Input = (
+function InputComponent(
   {
     label,
     support,
@@ -17,14 +16,15 @@ const Input = (
     ...rest
   },
   ref
-) => {
-  const innerRef = useRef(null);
-  const inputRef = useMergeRefs(ref, innerRef);
+) {
+  const inputRef = useRef(null);
+
+  useImperativeHandle(ref, () => inputRef?.current);
 
   useEffect(() => {
     let inputMask;
 
-    if (mask) {
+    if (inputRef.current && mask) {
       inputMask = IMask(inputRef.current, masks[mask]);
     }
 
@@ -33,7 +33,7 @@ const Input = (
         inputMask.destroy();
       }
     };
-  }, [mask, inputRef, name]);
+  }, [mask, inputRef]);
 
   return (
     <label className="field">
@@ -59,6 +59,6 @@ const Input = (
       )}
     </label>
   );
-};
+}
 
-export default forwardRef(Input);
+export const Input = forwardRef(InputComponent);
