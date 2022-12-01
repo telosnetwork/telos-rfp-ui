@@ -4,17 +4,7 @@ import IMask from 'imask';
 import masks from '@utils/masks';
 
 function InputComponent(
-  {
-    label,
-    support,
-    error,
-    type = 'text',
-    mask,
-    onChange,
-    onBlur,
-    name,
-    ...rest
-  },
+  { label, support, error, type = 'text', mask, ...rest },
   ref
 ) {
   const inputRef = useRef(null);
@@ -39,10 +29,7 @@ function InputComponent(
     <label className="field">
       <input
         {...rest}
-        name={name}
         ref={inputRef}
-        onChange={onChange}
-        onBlur={onBlur}
         type={type}
         className={`field__entry ${error ? 'field__entry--error' : ''}`}
         placeholder={label}

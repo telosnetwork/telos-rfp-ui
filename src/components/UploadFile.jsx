@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import InputFile from '@components/InputFile';
+import { InputFile } from '@components/InputFile';
 import { UploadCardFile } from '@components/UploadCardFile';
 import { saveFileService } from '@services/files/saveFileService';
 import { deleteFileService } from '@services/files/deleteFileService';

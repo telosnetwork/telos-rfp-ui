@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 
-const InputFile = ({ label, support, error, ...rest }, ref) => {
+function InputFileComponent({ label, support, error, ...rest }, ref) {
   return (
     <div className="block w-full">
       <span className="block font-medium text-white text-base mb-2">
@@ -33,6 +33,6 @@ const InputFile = ({ label, support, error, ...rest }, ref) => {
       )}
     </div>
   );
-};
+}
 
-export default forwardRef(InputFile);
+export const InputFile = forwardRef(InputFileComponent);
