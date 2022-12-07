@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { HeaderBack } from '@components/HeaderBack';
 import { Timeline } from '@components/Timeline';
-import Input from '@components/Input';
+import { Input } from '@components/Input';
 import { createDraftProjectService } from '@services/projects/createDraftProjectService';
 import { updateProjectService } from '@services/projects/updateProjectService';
 import { delay } from '@utils/delay';

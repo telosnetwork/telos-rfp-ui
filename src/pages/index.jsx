@@ -62,8 +62,8 @@ export default function Projects() {
       </Head>
       <HeaderPage title="Projects">
         {isProgramManager && (
-          <Link href="/projects/form/new">
-            <a className="btn btn--primary">Create Project</a>
+          <Link href="/projects/form/new" className="btn btn--primary">
+            Create Project
           </Link>
         )}
       </HeaderPage>

@@ -50,8 +50,11 @@ export function ProjectHeader() {
   return (
     <>
       {hasSendProposalButton && (
-        <Link href={`/projects/proposal/${project.project_id}/new`}>
-          <a className="btn btn--primary">Send Proposal</a>
+        <Link
+          href={`/projects/proposal/${project.project_id}/new`}
+          className="btn btn--primary"
+        >
+          Send Proposal
         </Link>
       )}
       {hasStartVotingButton && (

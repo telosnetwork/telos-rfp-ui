@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { FiAlertCircle } from 'react-icons/fi';
 
-const Textarea = ({ label, support, error, ...rest }, ref) => {
+function TextareaComponent({ label, support, error, ...rest }, ref) {
   return (
     <label className="field">
       <textarea
@@ -23,6 +23,6 @@ const Textarea = ({ label, support, error, ...rest }, ref) => {
       )}
     </label>
   );
-};
+}
 
-export default forwardRef(Textarea);
+export const Textarea = forwardRef(TextareaComponent);

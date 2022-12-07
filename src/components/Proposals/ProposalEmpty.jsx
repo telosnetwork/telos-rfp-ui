@@ -66,8 +66,11 @@ export function ProposalEmpty() {
                 won't have their bond returned. Bonds will be returned before
                 the voting period to legitimate proposals.
               </p>
-              <Link href={`/projects/proposal/${router.query.id}/new`}>
-                <a className="mt-6 btn btn--primary">Send Proposal</a>
+              <Link
+                href={`/projects/proposal/${router.query.id}/new`}
+                className="mt-6 btn btn--primary"
+              >
+                Send Proposal
               </Link>
             </>
           )}

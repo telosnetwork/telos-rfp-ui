@@ -115,8 +115,11 @@ export default function ProgramManagers() {
         </Head>
         <div className="flex flex-col justify-center items-center h-[calc(100vh-4.5rem)] pb-14">
           <h1 className="heading-2">Invite the first Program Manager</h1>
-          <Link href="/program-managers/invite">
-            <a className="btn btn--primary mt-6">Invite</a>
+          <Link
+            href="/program-managers/invite"
+            className="btn btn--primary mt-6"
+          >
+            Invite
           </Link>
         </div>
       </>
@@ -129,8 +132,8 @@ export default function ProgramManagers() {
         <title>{title}</title>
       </Head>
       <HeaderPage title="Program Managers">
-        <Link href="/program-managers/invite">
-          <a className="btn btn--primary">Invite</a>
+        <Link href="/program-managers/invite" className="btn btn--primary">
+          Invite
         </Link>
       </HeaderPage>
       <div className="container" ref={containerRef}>

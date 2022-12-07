@@ -1,30 +1,20 @@
-import { forwardRef, useEffect, useRef } from 'react';
+import { forwardRef, useEffect, useRef, useImperativeHandle } from 'react';
 import { FiAlertCircle } from 'react-icons/fi';
 import IMask from 'imask';
-import { useMergeRefs } from '@hooks/useMergeRefs';
 import masks from '@utils/masks';
 
-const Input = (
-  {
-    label,
-    support,
-    error,
-    type = 'text',
-    mask,
-    onChange,
-    onBlur,
-    name,
-    ...rest
-  },
+function InputComponent(
+  { label, support, error, type = 'text', mask, ...rest },
   ref
-) => {
-  const innerRef = useRef(null);
-  const inputRef = useMergeRefs(ref, innerRef);
+) {
+  const inputRef = useRef(null);
+
+  useImperativeHandle(ref, () => inputRef?.current);
 
   useEffect(() => {
     let inputMask;
 
-    if (mask) {
+    if (inputRef.current && mask) {
       inputMask = IMask(inputRef.current, masks[mask]);
     }
 
@@ -33,16 +23,13 @@ const Input = (
         inputMask.destroy();
       }
     };
-  }, [mask, inputRef, name]);
+  }, [mask, inputRef]);
 
   return (
     <label className="field">
       <input
         {...rest}
-        name={name}
         ref={inputRef}
-        onChange={onChange}
-        onBlur={onBlur}
         type={type}
         className={`field__entry ${error ? 'field__entry--error' : ''}`}
         placeholder={label}
@@ -59,6 +46,6 @@ const Input = (
       )}
     </label>
   );
-};
+}
 
-export default forwardRef(Input);
+export const Input = forwardRef(InputComponent);

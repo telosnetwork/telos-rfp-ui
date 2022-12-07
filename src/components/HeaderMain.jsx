@@ -19,9 +19,7 @@ export function HeaderMain() {
       <div className="container flex flex-col md:flex-row md:justify-between md:items-center">
         <div className="flex-none w-full md:w-auto flex flex-row justify-between items-center">
           <Link href="/">
-            <a>
-              <Image src={logoImg} alt="Logo Telos Build" />
-            </a>
+            <Image src={logoImg} alt="Logo Telos Build" />
           </Link>
           <button
             type="button"

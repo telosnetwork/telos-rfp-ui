@@ -6,13 +6,12 @@ export function NavItem({ children, href, ...rest }) {
   const isActiveItem = pathname === href;
 
   return (
-    <Link href={href}>
-      <a
-        className={`nav__item ${isActiveItem ? 'nav__item--active' : ''}`}
-        {...rest}
-      >
-        {children}
-      </a>
+    <Link
+      href={href}
+      className={`nav__item ${isActiveItem ? 'nav__item--active' : ''}`}
+      {...rest}
+    >
+      {children}
     </Link>
   );
 }

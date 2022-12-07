@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
 import { Overline } from '@components/Overline';
-import { gatewayURL } from '@configs/pinataConfig';
+import { fileURL } from '@configs/telosConfig';
 import {
   isPublished,
   isVoting,
@@ -131,8 +131,9 @@ export function ProposalItem({
             {hasEditButton && (
               <Link
                 href={`/projects/proposal/${router.query.id}/${proposalId}`}
+                className="btn btn--secondary"
               >
-                <a className="btn btn--secondary">Edit</a>
+                Edit
               </Link>
             )}
             {hasChooseProposalButton && (
@@ -183,7 +184,7 @@ export function ProposalItem({
           )}
           {techQualificationsPdf && (
             <a
-              href={`${gatewayURL}/${techQualificationsPdf}/?preview=1`}
+              href={`${fileURL}/${techQualificationsPdf}/?preview=1`}
               target="_blank"
               rel="noreferrer"
               className="body-1 link mb-2"
@@ -193,7 +194,7 @@ export function ProposalItem({
           )}
           {approachPdf && (
             <a
-              href={`${gatewayURL}/${approachPdf}/?preview=1`}
+              href={`${fileURL}/${approachPdf}/?preview=1`}
               target="_blank"
               rel="noreferrer"
               className="body-1 link mb-2"
@@ -203,7 +204,7 @@ export function ProposalItem({
           )}
           {costAndSchedulePdf && (
             <a
-              href={`${gatewayURL}/${costAndSchedulePdf}/?preview=1`}
+              href={`${fileURL}/${costAndSchedulePdf}/?preview=1`}
               target="_blank"
               rel="noreferrer"
               className="body-1 link mb-2"
@@ -213,7 +214,7 @@ export function ProposalItem({
           )}
           {referencesPdf && (
             <a
-              href={`${gatewayURL}/${referencesPdf}/?preview=1`}
+              href={`${fileURL}/${referencesPdf}/?preview=1`}
               target="_blank"
               rel="noreferrer"
               className="body-1 link mb-2"
