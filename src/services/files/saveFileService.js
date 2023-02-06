@@ -5,7 +5,7 @@ export async function saveFileService(file) {
   formData.append('file', file);
 
   const { data } = await axios.post(
-    `${window.location.origin}/api/files`,
+    `${window.location.origin}/api/files/upload`,
     formData,
     {
       headers: {

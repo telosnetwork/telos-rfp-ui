@@ -6,7 +6,7 @@ export async function deleteFileService(ipfsHash) {
   }
 
   const { data } = await axios.delete(
-    `${window.location.origin}/api/files/${ipfsHash}`
+    `${window.location.origin}/api/files/unpin?ipfs=${ipfsHash}`
   );
 
   return data;

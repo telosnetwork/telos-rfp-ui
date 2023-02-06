@@ -1,0 +1,7 @@
+[[edge_functions]]
+function = "upload-ipfs"
+path = "/api/files/upload"
+
+[[edge_functions]]
+function = "delete-ipfs"
+path = "/api/files/unpin"
